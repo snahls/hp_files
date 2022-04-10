@@ -1,0 +1,79 @@
+<!-- 
+<table class="table table-striped">
+    <thead>
+        <tr>
+          <th scope="col">State Id</th>
+          <th scope="col">State Name</th>
+        </tr>
+        </thead>
+    
+    <tbody>
+        <tr *ngFor="let user of jsone">
+          <td>{{ user.state_id | json}}</td>
+          <td>{{ user.state_name | json}}</td>
+        </tr>
+        </tbody>
+</table>
+ -->
+
+
+
+<!-- NEW FORM -->
+<form>
+  <div class="mb-3">
+    <label class="form-label">Select State :</label>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <select name="states" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="state_name" 
+    (blur)="printData()">
+      <option *ngFor="let state of states"> {{state.state_name}}</option>
+    </select>
+  </div>
+  <div class="mb-3">
+    <label class="form-label">Select District :</label>
+    &nbsp;&nbsp;
+    <select name="district" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" [(ngModel)]="district_name" >
+      <option *ngFor="let dis of district"> {{dis.district_name}}</option>
+    </select>
+  </div>
+  <div class="mb-3" >
+    <label class="form-label">Select Date :</label>
+    
+    <!-- <div class="form-group"> -->
+      <div class="input-group">
+        <input class="form-control" placeholder="dd-mm-yyyy"
+               name="dp" [(ngModel)]="model" ngbDatepicker #d="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button">Pick</button>
+        </div>
+      </div>
+    <!-- </div> -->
+  </div>
+  <div class="mb-3">
+  <button type="submit" (click)="getCity()" class="btn btn-primary">Submit</button>
+</div>
+</form>
+
+<!-- Table -->
+<br> <br>
+<table class="table table-striped">
+  <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Address</th>
+        <th scope="col">Dose 1</th>
+        <th scope="col">Dose 2</th>
+        <th scope="col">Vaccine</th>
+      </tr>
+      </thead>
+  
+  <tbody>
+      <tr *ngFor="let user of sessions">
+        <td>{{ user.name | json}}</td>
+        <td>{{ user.address | json}}</td>
+        <td>{{ user.available_capacity_dose1 | json}}</td>
+        <td>{{ user.available_capacity_dose2 | json}}</td>
+        <td>{{ user.vaccine | json}}</td> 
+      </tr>
+      </tbody>
+</table>
+
