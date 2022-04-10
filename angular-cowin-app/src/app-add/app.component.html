@@ -1,0 +1,5 @@
+<input type="text" for="item" [(ngModel)]="item" placeholder="add item.." required>
+<button type="button" *ngIf ="item" (click)="addfruit(item)">Add</button>
+<ul class="items">
+<li *ngFor = "let i of fruits">{{i}}</li>
+</ul>
